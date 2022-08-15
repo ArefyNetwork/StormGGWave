@@ -13,7 +13,7 @@ public abstract class SubCommand {
 
     protected boolean playerOnly = false;
 
-    public SubCommand(String name, String permission, String usage, String description) {
+    public SubCommand(final String name, final String permission, final String usage, final String description) {
         this.name = name;
         this.permission = permission;
         this.usage = usage;
@@ -22,7 +22,7 @@ public abstract class SubCommand {
 
     public abstract void execute(CommandSender sender, String[] args);
 
-    public void sendUsage(CommandSender sender) {
+    public void sendUsage(final CommandSender sender) {
         sender.sendMessage(usage);
     }
 

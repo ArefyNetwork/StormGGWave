@@ -22,7 +22,7 @@ public abstract class BaseCommand implements CommandExecutor {
     protected boolean playerOnly = false;
     protected boolean withoutSubCommand = false;
 
-    public BaseCommand(String name, String permission, String usage) {
+    public BaseCommand(final String name, final String permission, final String usage) {
         this.name = name;
         this.permission = permission;
         this.usage = usage;
@@ -31,7 +31,7 @@ public abstract class BaseCommand implements CommandExecutor {
     public abstract void execute(CommandSender sender, String[] args);
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(final CommandSender sender, final Command command, final String label, final String[] args) {
         if (playerOnly && !(sender instanceof Player)) {
             sender.sendMessage("Only players can execute that command!");
             return true;
@@ -51,8 +51,8 @@ public abstract class BaseCommand implements CommandExecutor {
             getSubCommands().forEach(commandSub -> commandSub.execute(sender, args));
         }
 
-        String subCommandName = args[0];
-        SubCommand subCommand = getSubCommand(subCommandName);
+        final String subCommandName = args[0];
+        final SubCommand subCommand = getSubCommand(subCommandName);
 
         if (subCommand == null) {
             getSubCommands().forEach(commandSub -> commandSub.execute(sender, args));
@@ -69,15 +69,15 @@ public abstract class BaseCommand implements CommandExecutor {
         return true;
     }
 
-    public SubCommand getSubCommand(String name) {
+    public SubCommand getSubCommand(final String name) {
         return subCommands.stream().filter(command -> command.getName().equals(name)).findAny().orElse(null);
     }
 
-    public void sendUsage(CommandSender sender) {
+    public void sendUsage(final CommandSender sender) {
         sender.sendMessage(ChatColor.RED + usage);
     }
 
-    public void register(JavaPlugin javaPlugin) {
+    public void register(final JavaPlugin javaPlugin) {
         javaPlugin.getCommand(getName()).setExecutor(this);
     }
 

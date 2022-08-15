@@ -12,19 +12,19 @@ public class MessageUtils {
         return (instance == null ? instance = new MessageUtils() : instance);
     }
 
-    public void sendMessage(String message, CommandSender sender) {
+    public void sendMessage(final String message, final CommandSender sender) {
         sender.sendMessage(ColorUtil.colorString(message));
     }
 
-    public void sendMessageList(List<String> message, CommandSender sender) {
+    public void sendMessageList(final List<String> message, final CommandSender sender) {
         message.forEach(m -> sender.sendMessage(ColorUtil.colorString(m)));
     }
 
-    public void broadcastMessage(String message) {
+    public void broadcastMessage(final String message) {
         Bukkit.broadcastMessage(ColorUtil.colorString(message));
     }
 
-    public void broadcastMessageList(List<String> message) {
+    public void broadcastMessageList(final List<String> message) {
         message.forEach(m -> Bukkit.broadcastMessage(ColorUtil.colorString(m)));
     }
 }

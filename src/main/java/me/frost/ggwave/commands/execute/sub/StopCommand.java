@@ -12,7 +12,7 @@ public class StopCommand extends SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (!WaveManager.getInstance().hasWaveStarted()) {
             MessageUtils.getInstance().sendMessage(getConfig().getString("messages.WAVE-NOT-ONGOING"), sender);
             return;

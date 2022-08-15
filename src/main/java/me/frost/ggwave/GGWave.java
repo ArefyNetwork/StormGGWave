@@ -13,14 +13,14 @@ public final class GGWave extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("[]==========[StormGGWave]==========[]");
+        Bukkit.getLogger().info("[]==========[StormGGWave]==========[]");
         Bukkit.getLogger().info("Loading config...");
         config = new FileHandler(this, "config", true);
         Bukkit.getLogger().info("Registering listeners...");
         Bukkit.getPluginManager().registerEvents(new PlayerChatListener(), this);
         Bukkit.getLogger().info("Registering commands...");
         registerCommands(new GGWaveCommand());
-        System.out.println("[]==========[StormGGWave]==========[]");
+        Bukkit.getLogger().info("[]==========[StormGGWave]==========[]");
     }
 
     @Override
@@ -33,8 +33,8 @@ public final class GGWave extends JavaPlugin {
         config.reload();
     }
 
-    public void registerCommands(BaseCommand... commands) {
-        for (BaseCommand command : commands) {
+    public void registerCommands(final BaseCommand... commands) {
+        for (final BaseCommand command : commands) {
             command.register(this);
         }
     }

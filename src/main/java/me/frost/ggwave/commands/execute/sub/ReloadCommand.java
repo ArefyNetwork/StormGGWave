@@ -11,7 +11,7 @@ public class ReloadCommand extends SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         GGWave.getPlugin(GGWave.class).reloadConfig();
         MessageUtils.getInstance().sendMessage("&a&l(!) &aSuccessfully reloaded the configuration!", sender);
     }

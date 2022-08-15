@@ -18,7 +18,7 @@ public class WaveManager {
         return (instance == null ? instance = new WaveManager() : instance);
     }
 
-    public void startWave(long seconds) {
+    public void startWave(final long seconds) {
         if (waveStarted) {
             return;
         }
@@ -40,7 +40,7 @@ public class WaveManager {
     }
 
     public String getRandomType() {
-        List<String> types = new ArrayList<>(plugin.getConfig().getStringList("ggwave-messages"));
+        final List<String> types = new ArrayList<>(plugin.getConfig().getStringList("ggwave-messages"));
         return ColorUtil.colorString(types.get(ThreadLocalRandom.current().nextInt(types.size())));
     }
 }

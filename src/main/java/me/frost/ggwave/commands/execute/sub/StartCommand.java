@@ -12,7 +12,7 @@ public class StartCommand extends SubCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
+    public void execute(final CommandSender sender, final String[] args) {
         if (WaveManager.getInstance().hasWaveStarted()) {
             MessageUtils.getInstance().sendMessage(getConfig().getString("messages.WAVE-ONGOING"), sender);
             return;
@@ -26,10 +26,10 @@ public class StartCommand extends SubCommand {
         WaveManager.getInstance().startWave(Integer.parseInt(args[1]));
     }
 
-    private boolean isInteger(String integer) {
+    private boolean isInteger(final String integer) {
         try {
             Integer.parseInt(integer);
-        } catch (NumberFormatException exception) {
+        } catch (final NumberFormatException exception) {
             System.out.println("Not an integer");
             return false;
         }

@@ -17,7 +17,7 @@ public final class FileHandler {
     private final File file;
     private final String fileName;
 
-    public FileHandler(JavaPlugin plugin, String fileName, boolean hasDefault) {
+    public FileHandler(final JavaPlugin plugin, final String fileName, final boolean hasDefault) {
         this.plugin = plugin;
         this.hasDefault = hasDefault;
         this.fileName = fileName;
@@ -33,10 +33,11 @@ public final class FileHandler {
                 } else {
                     file.createNewFile();
                 }
-            } catch (IOException exception) {
+            } catch (final IOException exception) {
                 exception.printStackTrace();
             }
         }
+
         loadConfig();
     }
 
@@ -56,7 +57,7 @@ public final class FileHandler {
     public void saveConfig() {
         try {
             configuration.save(file);
-        } catch (IOException exception) {
+        } catch (final IOException exception) {
             exception.printStackTrace();
         }
     }
