@@ -7,8 +7,7 @@ public class ColorUtil {
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 
-    // Empty constructor to stop instantiation of Utility class
     private ColorUtil() {
-
+        throw new RuntimeException("Utility class cannot be instantiated!");
     }
 }

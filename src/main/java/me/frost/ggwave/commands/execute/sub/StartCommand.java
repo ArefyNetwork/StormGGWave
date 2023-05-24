@@ -30,9 +30,9 @@ public class StartCommand extends SubCommand {
         try {
             Integer.parseInt(integer);
         } catch (final NumberFormatException exception) {
-            System.out.println("Not an integer");
             return false;
         }
+
         return true;
     }
 }

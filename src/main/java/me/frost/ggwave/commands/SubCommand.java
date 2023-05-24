@@ -44,4 +44,8 @@ public abstract class SubCommand {
     public FileConfiguration getConfig() {
         return plugin.getConfig();
     }
+
+    public GGWave getPlugin() {
+        return plugin;
+    }
 }

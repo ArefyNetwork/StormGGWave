@@ -3,9 +3,8 @@ package me.frost.ggwave.utils;
 
 public final class StringUtils {
 
-    // Empty constructor to stop instantiation of Utility class
     private StringUtils() {
-
+        throw new RuntimeException("Utility class cannot be instantiated!");
     }
 
     public static boolean startsWith(final String string, final String prefix) {
