@@ -18,8 +18,8 @@ public class GGWaveCommand extends BaseCommand {
     }
 
     @Override
-    public void execute(CommandSender sender, String[] args) {
-        MessageUtils.getInstance().sendMessage("&e&lStormGGWave 1.0 &7(by frost#0723)", sender);
+    public void execute(final CommandSender sender, final String[] args) {
+        MessageUtils.getInstance().sendMessage("&e&lStormGGWave 1.0", sender);
         getSubCommands().forEach(subCommand -> MessageUtils.getInstance().sendMessage(subCommand.getUsage(), sender));
     }
 }

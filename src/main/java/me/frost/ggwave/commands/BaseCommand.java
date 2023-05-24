@@ -55,7 +55,7 @@ public abstract class BaseCommand implements CommandExecutor {
         final SubCommand subCommand = getSubCommand(subCommandName);
 
         if (subCommand == null) {
-            getSubCommands().forEach(commandSub -> commandSub.execute(sender, args));
+            execute(sender, args);
             return true;
         }
 
