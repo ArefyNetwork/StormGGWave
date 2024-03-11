@@ -2,6 +2,7 @@ package me.frost.ggwave.listeners;
 
 import me.frost.ggwave.managers.WaveManager;
 import me.frost.ggwave.utils.StringUtils;
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -13,7 +14,9 @@ public class PlayerChatListener implements Listener {
         if (!WaveManager.getInstance().hasWaveStarted()) {
             return;
         }
-        if (!StringUtils.startsWith(event.getMessage(), "gg")) {
+        String message = event.getMessage();
+        message = ChatColor.stripColor(message);
+        if (!StringUtils.startsWith(message, "gg")) {
             return;
         }
 
